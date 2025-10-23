@@ -2,7 +2,7 @@ name: Update Project Syndicate RSS
 
 on:
   schedule:
-    - cron: "0 * * * *"  # every 30 minutes
+    - cron: "*/30 * * * *"  # every 30 minutes
   workflow_dispatch:
 
 jobs:
