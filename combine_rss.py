@@ -8,7 +8,7 @@ RSS_URLS = [
     "https://www.ft.com/rss/comment/opinion"
 ]
 
-ARCHIVE_PREFIX = "https://archive.is/o/7PUs5/"
+ARCHIVE_PREFIX = "https://archive.is/o/IccZq/"
 OUTPUT_FILE = "combined.xml"
 
 def parse_entry_datetime(entry):
