@@ -8,6 +8,20 @@ on:
 jobs:
   update-rss:
     runs-on: ubuntu-latest
+
+    services:
+      flaresolverr:
+        image: ghcr.io/flaresolverr/flaresolverr:latest
+        ports:
+          - 8191:8191
+        env:
+          LOG_LEVEL: info
+        options: >-
+          --health-cmd "curl -sf http://localhost:8191/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 6
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -18,7 +32,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install feedparser
+        run: pip install feedparser requests
 
       - name: Run combine RSS script
         run: python combine_rss.py
